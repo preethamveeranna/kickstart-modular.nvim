@@ -91,7 +91,22 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
+
+-- fold options
+-- treesitter as source of truth
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+-- turn off extra information on new column
+vim.opt.foldcolumn = '0'
+-- By setting this to an empty string, it means that the first line of the fold will be syntax highlighted, rather than all be one colour
+vim.opt.foldtext = ''
+-- Setting foldlevel sets the minimum level of a fold that will be closed by default. Therefore I set this to 99 as I don't want this behaviour at all.
+vim.opt.foldlevel = 99
+-- meaning top level folds are open, but anything nested beyond that is closed.
+-- vim.opt.foldlevelstart = 99
+-- So I set this value to 4, meaning that once code gets beyond 4 levels it won't be broken down into more
+vim.opt.foldnestmax = 4
 
 -- [[ Setting options ]]
 require 'options'

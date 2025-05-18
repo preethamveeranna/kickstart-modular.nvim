@@ -30,13 +30,35 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-vim.keymap.set('n', '<S-l>', ':bprevious<CR>', { desc = 'Move focus to the previous buffer' })
-vim.keymap.set('n', '<S-h>', ':bnext<CR>', { desc = 'Move focus to the next buffer' })
+vim.keymap.set('n', '<S-h>', ':bprevious<CR>', { desc = 'Move focus to the previous buffer' })
+vim.keymap.set('n', '<S-l>', ':bnext<CR>', { desc = 'Move focus to the next buffer' })
+
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
 -- vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
+
+-- Resize windows with arrows
+vim.keymap.set('n', '<C-Up>', ':resize -2<CR>', { desc = 'Move window upper' })
+vim.keymap.set('n', '<C-Down>', ':resize +2<CR>', { desc = 'Move window down' })
+vim.keymap.set('n', '<C-Left>', ':vertical resize -2<CR>', { desc = 'Move window left' })
+vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', { desc = 'Move window right' })
+
+-- Move current line / block with Alt-j/k a la vscode.
+vim.keymap.set('n', '<A-j>', ':m .+1<CR>==', { desc = 'Move line down' })
+vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', { desc = 'Move line up' })
+
+-- QuickFix
+vim.keymap.set('n', ']q', ':cnext<CR>', { desc = '' })
+vim.keymap.set('n', '[q', ':cprev<CR>', { desc = '' })
+-- vim.keymap.set('n', '<C-q>', ':call QuickFixToggle()<CR>', { desc = 'check quickfix' })
+
+-- dont copy edits to buffer
+vim.keymap.set('n', 'c', '"_c', { desc = '' })
+vim.keymap.set('n', 'x', '"_x', { desc = '' })
+vim.keymap.set('n', 'dd', '"_dd', { desc = '' })
+vim.keymap.set('v', 'p', '"_dP', { desc = '' })
 
 local mode_adapters = {
   insert_mode = 'i',
@@ -60,29 +82,6 @@ local defaults = {
     ['<A-Down>'] = '<C-\\><C-N><C-w>j',
     ['<A-Left>'] = '<C-\\><C-N><C-w>h',
     ['<A-Right>'] = '<C-\\><C-N><C-w>l',
-  },
-
-  normal_mode = {
-    -- Better window movement
-    ['<C-h>'] = '<C-w>h',
-    ['<C-j>'] = '<C-w>j',
-    ['<C-k>'] = '<C-w>k',
-    ['<C-l>'] = '<C-w>l',
-
-    -- Resize with arrows
-    ['<C-Up>'] = ':resize -2<CR>',
-    ['<C-Down>'] = ':resize +2<CR>',
-    ['<C-Left>'] = ':vertical resize -2<CR>',
-    ['<C-Right>'] = ':vertical resize +2<CR>',
-
-    -- Move current line / block with Alt-j/k a la vscode.
-    ['<A-j>'] = ':m .+1<CR>==',
-    ['<A-k>'] = ':m .-2<CR>==',
-
-    -- QuickFix
-    [']q'] = ':cnext<CR>',
-    ['[q'] = ':cprev<CR>',
-    ['<C-q>'] = ':call QuickFixToggle()<CR>',
   },
 
   term_mode = {

@@ -68,7 +68,7 @@ return {
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
         { '<leader>w', '<cmd>w!<CR>', mode = { 'n', 'v' } },
         { '<leader>q', '<cmd>confirm q<CR>', mode = { 'n', 'v' }, desc = 'Quit window' },
-        { '<leader>c', '<cmd>BufferKill<CR>', mode = { 'n', 'v' }, desc = 'Kill current buffer' },
+        { '<leader>c', '<cmd>Bdelete<CR>', mode = { 'n', 'v' }, desc = 'Kill current buffer' },
         { '<leader>e', '<cmd>Neotree toggle<CR>', mode = { 'n', 'v' }, desc = 'toggle neo-tree' },
         -- b = {
         --   name = 'Buffers',

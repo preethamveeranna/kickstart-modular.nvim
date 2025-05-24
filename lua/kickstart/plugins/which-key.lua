@@ -65,7 +65,7 @@ return {
       spec = {
         { '<leader>s', group = '[S]earch' },
         { '<leader>t', group = '[T]oggle' },
-        { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        { '<leader>g', group = 'Git [H]unk', mode = { 'n', 'v' } },
         { '<leader>w', '<cmd>w!<CR>', mode = { 'n', 'v' } },
         { '<leader>q', '<cmd>confirm q<CR>', mode = { 'n', 'v' }, desc = 'Quit window' },
         { '<leader>c', '<cmd>Bdelete<CR>', mode = { 'n', 'v' }, desc = 'Kill current buffer' },

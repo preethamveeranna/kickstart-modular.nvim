@@ -22,6 +22,10 @@ return {
           ['h'] = 'close_node',
         },
       },
+      follow_current_file = {
+        enabled = true,         -- This follows the active file
+        leave_dirs_open = false, -- closes previously expanded directories to avoid clutter
+      },
     },
   },
 }

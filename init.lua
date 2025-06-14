@@ -96,6 +96,7 @@ vim.g.have_nerd_font = true
 -- set termgui colors, required for bufferline mainly
 vim.opt.termguicolors = true
 
+
 -- fold options
 -- treesitter as source of truth
 vim.opt.foldmethod = 'expr'
@@ -125,3 +126,5 @@ require 'lazy-plugins'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+vim.cmd.colorscheme("terafox")
